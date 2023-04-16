@@ -1,32 +1,19 @@
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
 import { useAppDispatch, useAppSelector } from '@/hooks/useApp'
-import Task from '@/components/TaskList'
+import { useData } from '@/hooks/useData'
+import { deleteTodo, updateTodo, createTodo } from "@/connector/crud"
+import { getAllTodos } from "@/store/todolistSlice"
+import TaskList from '@/components/taskList/TaskList'
 import Submitter from '@/components/Submitter'
-import TaskHeader from '@/components/TaskHeader'
-import ProcessCard from '@/components/ProcessCard'
-import {v4 as uuidv4} from 'uuid'
-// import { useFetchTodosQuery } from '@/store/testSlice'
-// import { tProps } from '@/store/testSlice'
-import { useFetch } from '@/hooks/useFetch'
-
-// export async function getStaticProps() {
-//   const data = await loadTodos(db, path, useAppDispatch())
-
-//   return{
-//       props: {data}
-//   }
-// }
+import TaskHeader from '@/components/taskList/TaskHeader'
+import ProcessCard from '@/components/ProgressCard'
 
 export default function Home() {
 
   const todos = useAppSelector((state)=>state.todos)
   const dispatch = useAppDispatch()
-  const uuid = uuidv4();
 
-  // const {data, isFetching} = useFetchTodosQuery()
-
-  useFetch()
+  useData(dispatch, getAllTodos)
   
   return (
     <>
@@ -36,15 +23,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <ProcessCard/>
-        <TaskHeader/>
-        <Task todos={todos} dispatch={dispatch}/>
-        <Submitter dispatch={dispatch}/>
-        {/* <button onClick={()=>write(uuid)}>write</button> */}
-        {/* <button onClick={()=>deleted()}>read</button> */}
-        {/* <div> Todos: {data?.length}</div> */}
+
+      <main className='main-container'>
+        <div className='card-container'>
+          <ProcessCard todos={todos}/>
+          <TaskHeader dispatch={dispatch}/>
+          <TaskList todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo} dispatch={dispatch}/>
+          <Submitter createTodo={createTodo} placeholder='Add your todo...'/>
+        </div>
       </main>
     </>
   )
+
 }

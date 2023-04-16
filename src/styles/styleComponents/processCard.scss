@@ -1,0 +1,24 @@
+.progressCard-container{
+    background-color: $subColor;
+    padding: 5px 40px;
+    border-radius: 20px;
+    margin: 33px 0;
+    color: $whiteColor;
+
+    .progressBar{
+        position: relative;
+        height: 7.34px;
+        width: 100%;
+        border-radius: 100px;
+        background-color: $darkColor;
+    
+        &>div{
+            position: absolute;
+            background-color: $whiteColor;
+            height: 7.34px;
+            border-radius: 100px;
+            transition: all .5s ease-out;
+        }
+    }
+}
+

@@ -1,25 +1,26 @@
 import React, { KeyboardEvent } from "react"
-import { AppDispatch } from "@/store/store"
-import { addTodo } from "@/store/todolistSlice"
+import { createProps } from "@/connector/crud"
+import { v4 as uuid } from "uuid"
 
-interface Props {
-    dispatch: AppDispatch
+interface SubmitProps {
+    createTodo: createProps
+    placeholder:string
 }
 
-export default (props: Props) =>{
-    const {dispatch} = props
+export default (props:SubmitProps) =>{
+    const {createTodo,placeholder} = props
 
     const handleClick = (e : KeyboardEvent<HTMLInputElement>) =>{
         const content : string = e.currentTarget.value.toString()
         if(e.key === 'Enter' && e.currentTarget.value != ''){
-            dispatch(addTodo({content}))
+            createTodo(content, uuid())
             e.currentTarget.value = ''
         }
     }
 
     return(
-        <div>
-            <input type='text' onKeyDown={(e)=>{handleClick(e)}}/>
+        <div className="submitter-container">
+            <input type='text' onKeyDown={(e)=>{handleClick(e)}} placeholder={placeholder}/>
         </div>
     )
 }

@@ -1,0 +1,106 @@
+
+.taskList-container{
+    &>div{
+        background-color: $whiteColor;
+        margin: 20px 0;
+        width: 100%;
+        border-radius: 100px;
+        position: relative;
+        padding: 8px 0;
+
+        .taskList-card{
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            padding: 3px 20px;
+
+            &>div:first-child{
+                // background-color: red;
+                // flex-basis: 5%;
+                flex-grow: 0;
+
+                label{
+                    display: block;
+                    position: relative;
+                    padding-left: 25px;
+                    cursor: pointer;
+
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+
+                    input {
+                        position: absolute;
+                        display: none;
+
+                        &:checked ~ .checkmark {
+                            background-color: $mainColor;
+                            &:after {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .checkmark {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 20px;
+                        width: 20px;
+                        transform: translateY(-50%);
+                        background-color: transparent;
+                        border-radius: 6px;
+                        border: 2px solid $mainColor;
+
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            display: none;
+                            top: 3px;
+                            left: 7px;
+                            
+                            width: 4px;
+                            height: 9px;
+                            border: solid white;
+                            border-width: 0 2px 2px 0;
+                            -webkit-transform: rotate(45deg);
+                            -ms-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                        }
+                    }
+
+
+                    // &:hover input ~ .checkmark {
+                    //     background-color: #ccc;
+                    // }
+                }
+            }
+
+            &>div:nth-child(2){
+                padding: 0 10px;
+                flex-grow: 2;
+            }
+
+            &>div:last-child{
+                flex-grow: 0;
+            }
+
+        }
+        .taskList-dropdown{
+            position: absolute;
+            top: 70%;
+            right: 15px;
+            background-color: $whiteColor;
+            z-index: 10;
+            padding: 17px 22px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px 0 $shadowColor;
+        }
+        .taskList-submitter{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+

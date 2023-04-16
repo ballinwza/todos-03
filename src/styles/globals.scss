@@ -1,0 +1,41 @@
+$darkColor: #3B3B3B;
+$second-darkColor:#E5E5E5;
+$blackColor: #000000;
+
+$lightColor: #F5F5F5;
+$whiteColor: #FFFFFF;
+
+$grayColor: #9796A8;
+$sub-grayColor: #BCBCBC;
+
+$mainColor: #585292;
+
+$subColor : #E07C7C;
+$second-subColor:#EBB9B8;
+
+$shadowColor: rgba(0,0,0,0.2);
+
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+body,input{
+    font-size: 62.5% !important;
+}
+
+.line-through{text-decoration: line-through;}
+.d-flex{display: flex !important;}
+.d-block{display: block !important;}
+.hidden{display: none !important}
+input[type=text]{
+    border: none;
+    outline: none;
+    padding: 3px 22px;
+}
+
+@import 'Home.scss';
+@import './styleComponents/taskList.scss';
+@import './styleComponents/processCard.scss';
+@import './styleComponents/submitter.scss'
