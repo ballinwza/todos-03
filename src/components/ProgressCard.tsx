@@ -4,7 +4,7 @@ import { TaskListProp } from "@/store/todolistSlice"
 interface Props {
     todos: TaskListProp[]
 }
-export default (props: Props) =>{
+const ProgreeCard = (props: Props) =>{
     const {todos} = props
 
     const [percent, setPercent] = useState(0)
@@ -52,3 +52,5 @@ export default (props: Props) =>{
       </div>
     )
 }
+
+export default ProgreeCard

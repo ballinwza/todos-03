@@ -7,7 +7,7 @@ interface SubmitProps {
     placeholder:string
 }
 
-export default (props:SubmitProps) =>{
+const Submitter = (props:SubmitProps) =>{
     const {createTodo,placeholder} = props
 
     const handleClick = (e : KeyboardEvent<HTMLInputElement>) =>{
@@ -24,3 +24,5 @@ export default (props:SubmitProps) =>{
         </div>
     )
 }
+
+export default Submitter

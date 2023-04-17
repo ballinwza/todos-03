@@ -23,7 +23,7 @@ interface Props{
     placeholder: string
 }
 
-export default (props: Props) =>{
+const TaskListSubmitter = (props: Props) =>{
     const {className, item, dispatch, dispatchAction, updateTodo, index, placeholder} = props
     const [inputValue, setInputValue] = useState<string[]>([])
 
@@ -79,3 +79,5 @@ export default (props: Props) =>{
         </div>
     )
 }
+
+export default TaskListSubmitter

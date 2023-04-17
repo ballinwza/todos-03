@@ -9,7 +9,7 @@ interface IProps {
     item:TaskListProp
 }
 
-export default (props:IProps) =>{
+const TaskListDropdown = (props:IProps) =>{
     const {selectOption, deleteTodo, className,item} = props
 
     const handleDelete = (id:string) =>{
@@ -23,3 +23,5 @@ export default (props:IProps) =>{
         </div>
     )
 }
+
+export default TaskListDropdown

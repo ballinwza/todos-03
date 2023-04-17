@@ -10,7 +10,7 @@ interface Props{
     filter: filterType
 }
 
-export default (props:Props) => {
+const TaskHeader = (props:Props) => {
     const {dispatch, filter} = props
     const textFilterRef = useRef<HTMLParagraphElement>(null)
     const [toggle, setToggle] = useState<string>('hidden')
@@ -52,3 +52,5 @@ export default (props:Props) => {
         </div>
     )
 }
+
+export default TaskHeader

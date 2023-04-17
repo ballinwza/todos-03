@@ -11,7 +11,7 @@ interface Props {
     className: string
 }
 
-export default (props:Props) =>{
+const TaskListCard = (props:Props) =>{
     const {item, selectOption, updateTodo, className} = props
 
     const handleChange = (item:TaskListProp) =>{
@@ -31,3 +31,5 @@ export default (props:Props) =>{
         </div>
     )
 }
+
+export default TaskListCard

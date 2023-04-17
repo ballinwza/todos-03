@@ -19,7 +19,7 @@ interface Props{
     dispatch: AppDispatch
 }
 
-export default (props : Props) =>{
+const TaskList = (props : Props) =>{
     const {todos, deleteTodo, updateTodo, dispatch} = props
 
     const filter = useAppSelector(state=>state.filter)
@@ -86,3 +86,5 @@ export default (props : Props) =>{
         </>
     )
 }
+
+export default TaskList
