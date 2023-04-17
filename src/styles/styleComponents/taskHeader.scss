@@ -1,0 +1,66 @@
+.taskHeader-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+
+    &>div:nth-child(2){
+        position: relative;
+
+        &>div:first-child{
+            background-color: $whiteColor;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 11rem;
+            height: 4rem;
+            border-radius: 1rem;
+            padding: 0 1rem;
+            color: $blackColor;
+            cursor: pointer;
+
+            svg{
+                font-size: 1.4rem;
+            }
+        }
+
+        ul{
+            background-color: $whiteColor;
+            list-style: none;
+            margin: 0;
+            padding: 1rem 0.6rem;
+            position: absolute;
+            top: 125%;
+            right: 0;
+            z-index: 20;
+            box-shadow: $boxShadow;
+            width: 11.8rem;
+            border-radius: 1rem;
+
+            .active{
+                background-color: $mainColor;
+                color: $whiteColor;
+
+                &:hover{
+                    background-color: $mainColor !important;
+                }
+            }
+
+            li{
+                padding: 1rem;
+                margin: 0.5rem 0;
+                cursor: pointer;
+                border-radius: 0.8rem;
+                transition: all .1s;
+
+                &:hover{
+                    background-color: $sub-grayColor;
+                    color: $whiteColor;
+                    transition: all .1s;
+                }
+            }
+        }
+    }
+
+}

@@ -13,4 +13,5 @@ const filterSlice =createSlice({
 })
 
 export const {setTodosFilter} = filterSlice.actions
+export type filterType = typeof initialState
 export default filterSlice.reducer

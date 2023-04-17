@@ -11,6 +11,7 @@ import ProcessCard from '@/components/ProgressCard'
 export default function Home() {
 
   const todos = useAppSelector((state)=>state.todos)
+  const filter = useAppSelector((state)=>state.filter)
   const dispatch = useAppDispatch()
 
   useData(dispatch, getAllTodos)
@@ -27,7 +28,7 @@ export default function Home() {
       <main className='main-container'>
         <div className='card-container'>
           <ProcessCard todos={todos}/>
-          <TaskHeader dispatch={dispatch}/>
+          <TaskHeader dispatch={dispatch} filter={filter}/>
           <TaskList todos={todos} deleteTodo={deleteTodo} updateTodo={updateTodo} dispatch={dispatch}/>
           <Submitter createTodo={createTodo} placeholder='Add your todo...'/>
         </div>

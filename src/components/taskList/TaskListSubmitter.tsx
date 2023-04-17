@@ -64,13 +64,18 @@ export default (props: Props) =>{
 
     return(
         <div className={className}>
-            <input
-                type="text"
-                value={inputValue[index] == undefined ? '' : inputValue[index]}
-                onKeyDown={(e)=>handleSubmitByEnter(e,item,index)} onChange={(e)=>handleChangeInputValue(e,index)}
-                placeholder={placeholder}
-            />
-            <button onClick={(e)=>handleSubmitByClick(e,item,index)}>Save</button>
+            <div>
+                <input
+                    type="text"
+                    value={inputValue[index] == undefined ? '' : inputValue[index]}
+                    onKeyDown={(e)=>handleSubmitByEnter(e,item,index)} onChange={(e)=>handleChangeInputValue(e,index)}
+                    placeholder={placeholder}
+                    name={item.id}
+                />
+            </div>
+            <div>
+                <button onClick={(e)=>handleSubmitByClick(e,item,index)}>Save</button>
+            </div>
         </div>
     )
 }

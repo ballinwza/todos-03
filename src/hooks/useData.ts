@@ -20,7 +20,8 @@ export const useData = (dispatch : AppDispatch, dispatchAction: ActionCreatorWit
                 })
                 dispatch(dispatchAction(newDataObject))
             }else{
-                console.log("Don't has data")
+                console.log("Don't have data")
+                dispatch(dispatchAction(newDataObject))
             }
         }
 

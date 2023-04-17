@@ -8,7 +8,8 @@ export const createTodo = async (content: string, uuid:string) => {
         id: uuid,
         content: content,
         isCheck: false,
-        isOption: 'default'
+        isOption: 'default',
+        date: new Date().toISOString()
     })
 }
 
@@ -18,7 +19,8 @@ export const updateTodo = async (item:TaskListProp ,content:string|undefined, is
         id: item.id,
         content: content == undefined? item.content : content,
         isCheck: isCheck == undefined ? item.isCheck : isCheck,
-        isOption: 'default'
+        isOption: 'default',
+        date: item.date
     }
     const updates:any  = {}
     updates[`/${path}/`+ item.id] = postData

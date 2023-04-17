@@ -5,6 +5,11 @@ export interface TaskListProp {
     content: string
     isCheck: boolean
     isOption: string
+    date: Date
+}
+
+interface DateObject {
+    date: string;
 }
 
 type Props = TaskListProp[]
@@ -16,6 +21,13 @@ const todoSlice = createSlice({
     initialState,
     reducers : {
         getAllTodos(state,action){
+            action.payload.sort((a:DateObject,b:DateObject)=>{
+                const dateA = new Date(a.date)
+                const dateB = new Date(b.date)
+
+                return dateA.getTime() - dateB.getTime()
+            })
+
             return action.payload
         },
         checkOption(state, action : PayloadAction<{index:number, isOption:string}>){

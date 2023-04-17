@@ -1,0 +1,30 @@
+@media only screen and (max-width: $lg){
+    :root{
+        font-size: 60% !important;
+    }
+    .card-container{
+        width: 80% !important;
+        margin: 20px 0;
+        padding: 5rem 5rem !important;
+    }
+}
+
+@media only screen and (max-width: $md){
+    :root{
+        font-size: 50% !important;
+    }
+    .card-container{
+        width: 75% !important;
+        padding: 5rem 5rem !important;
+    }
+}
+
+@media only screen and (max-width: $sm){
+    :root{
+        font-size: 45% !important;
+    }
+    .card-container{
+        width: 70% !important;
+        padding: 5rem 4rem !important;
+    }
+}

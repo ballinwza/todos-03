@@ -1,28 +1,36 @@
-
 .taskList-container{
     &>div{
         background-color: $whiteColor;
-        margin: 20px 0;
+        margin: 2rem 0;
         width: 100%;
-        border-radius: 100px;
+        border-radius: 10rem;
         position: relative;
-        padding: 8px 0;
+        padding: 1rem 0;
+        user-select: none;
+
+        &:first-child{
+            margin-top: 0 !important;
+        }
 
         .taskList-card{
             display: flex;
             align-items: center;
             flex-wrap: nowrap;
-            padding: 3px 20px;
+            padding: 0.3rem 2rem;
+
+            svg{
+                cursor: pointer;
+                color: $grayColor;
+                font-size: 2.6rem;
+            }
 
             &>div:first-child{
-                // background-color: red;
-                // flex-basis: 5%;
                 flex-grow: 0;
 
                 label{
                     display: block;
                     position: relative;
-                    padding-left: 25px;
+                    padding-left: 3rem;
                     cursor: pointer;
 
                     -webkit-user-select: none;
@@ -46,39 +54,34 @@
                         position: absolute;
                         top: 0;
                         left: 0;
-                        height: 20px;
-                        width: 20px;
-                        transform: translateY(-50%);
+                        height: 2rem;
+                        width: 2rem;
+                        transform: translateY(-51%);
                         background-color: transparent;
-                        border-radius: 6px;
-                        border: 2px solid $mainColor;
+                        border-radius: 0.6rem;
+                        border: 0.2rem solid $mainColor;
 
                         &:after {
                             content: "";
                             position: absolute;
                             display: none;
-                            top: 3px;
-                            left: 7px;
+                            top: 0.3rem;
+                            left: 0.7rem;
                             
-                            width: 4px;
-                            height: 9px;
+                            width: 0.4rem;
+                            height: 0.9rem;
                             border: solid white;
-                            border-width: 0 2px 2px 0;
+                            border-width: 0 0.2rem 0.2rem 0;
                             -webkit-transform: rotate(45deg);
                             -ms-transform: rotate(45deg);
                             transform: rotate(45deg);
                         }
                     }
-
-
-                    // &:hover input ~ .checkmark {
-                    //     background-color: #ccc;
-                    // }
                 }
             }
 
             &>div:nth-child(2){
-                padding: 0 10px;
+                padding: 0 1rem;
                 flex-grow: 2;
             }
 
@@ -90,16 +93,64 @@
         .taskList-dropdown{
             position: absolute;
             top: 70%;
-            right: 15px;
+            right: 1.5rem;
             background-color: $whiteColor;
             z-index: 10;
-            padding: 17px 22px;
-            border-radius: 10px;
-            box-shadow: 0 0 8px 0 $shadowColor;
+            padding: 0.5rem 2.2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 0.8rem 0 $shadowColor;
+            width: 9rem;
+
+            &>div{
+                margin: 1.5rem 0;
+                user-select: none;
+                cursor: pointer;
+                &:hover{
+                    opacity: 0.7;
+                }
+            }
+
+            &>div:last-child{
+                color: $subColor;
+            }
         }
         .taskList-submitter{
             display: flex;
-            justify-content: center;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 1rem;
+
+            &>div{
+
+                &:first-child{
+                    flex-basis: 80%;
+
+                    input{
+                        width: 100%;
+                    }
+                }
+
+                &:last-child{
+                    flex-basis: auto;
+
+                    button{
+                        height: 3.6rem;
+                        width: 6.4rem;
+                        border-radius: 1000px;
+                        border: none;
+                        outline: none;
+                        background-color: $mainColor;
+                        color: $whiteColor;
+                        cursor: pointer;
+                        transition: all .2s;
+
+                        &:hover{
+                            opacity: 0.8;
+                            transition: all .2s;
+                        }
+                    }
+                }
+            }
         }
     }
 }
