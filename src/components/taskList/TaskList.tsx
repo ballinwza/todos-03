@@ -24,13 +24,15 @@ const TaskList = (props : Props) =>{
 
     const filter = useAppSelector(state=>state.filter)
 
-    const selectOption = (index:Param['index'], isOption: Param['isOption'], id?: string)=>{
+    const selectOption = (index:Param['index'], isOption: Param['isOption'], id?: string, content?: string)=>{
         const inputElement = document.querySelector<HTMLInputElement>(`input[name='${id}']`)
         dispatch(checkOption({index, isOption}))
+        
         if (inputElement) {
             setTimeout(()=>{
+                inputElement.value = `${content}`
                 inputElement.focus();
-            },100)
+            },10)
         }
     }
 
@@ -59,7 +61,7 @@ const TaskList = (props : Props) =>{
 
                             <TaskListDropdown
                                 className={`taskList-dropdown ${item.isOption == 'dropdown' ? 'd-block':'hidden'}`}
-                                selectOption={()=>selectOption(index, 'edit', item.id)}
+                                selectOption={()=>selectOption(index, 'edit', item.id, item.content)}
                                 deleteTodo={deleteTodo}
                                 item={item}
                             />

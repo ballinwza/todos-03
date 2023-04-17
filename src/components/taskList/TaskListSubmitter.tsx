@@ -67,8 +67,9 @@ const TaskListSubmitter = (props: Props) =>{
             <div>
                 <input
                     type="text"
-                    value={inputValue[index] == undefined ? '' : inputValue[index]}
-                    onKeyDown={(e)=>handleSubmitByEnter(e,item,index)} onChange={(e)=>handleChangeInputValue(e,index)}
+                    value={inputValue[index] == undefined || inputValue[index] == ''  ? '' : inputValue[index]}
+                    onKeyDown={(e)=>handleSubmitByEnter(e,item,index)} 
+                    onChange={(e)=>handleChangeInputValue(e,index)}
                     placeholder={placeholder}
                     name={item.id}
                 />
